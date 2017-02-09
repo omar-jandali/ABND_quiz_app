@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    int score = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkResults(View view){
+        int score = 0;
+
         EditText submitName  = (EditText) findViewById(R.id.user_name_view);
         Editable userName = submitName.getText();
 
@@ -31,16 +31,29 @@ public class MainActivity extends AppCompatActivity {
         RadioButton houston = (RadioButton) findViewById(R.id.houston);
 
         if (patriots.isChecked()){
-            score = score + 1;
+            score ++;
         }
         if (brady.isChecked()){
-            score = score + 1;
+            score ++;
         }
         if (ryan.isChecked()){
-            score = score + 1;
+            score ++;
         }
         if (houston.isChecked()){
-            score = score + 1;
+            score ++;
+        }
+
+        EditText patriotsScore = (EditText) findViewById(R.id.patriots_score);
+        EditText falconsScore = (EditText) findViewById(R.id.falcons_score);
+        String patriotsFinal = patriotsScore.getText().toString();
+        int patsFinalScore = Integer.parseInt(patriotsFinal);
+        String falconsFinal = falconsScore.getText().toString();
+        int falcFinalScore = Integer.parseInt(falconsFinal);
+
+        if (patsFinalScore == 31){
+            if (falcFinalScore == 28){
+                score ++;
+            }
         }
 
         CheckBox edelmanChecked = (CheckBox) findViewById(R.id.julian_edelman);
@@ -49,26 +62,23 @@ public class MainActivity extends AppCompatActivity {
         boolean white = whiteChecked.isChecked();
 
         if (edelman){
-            score = score + 1;
+            if (white){
+                score ++;
+            }
         }
-        if (white){
-            score = score + 1;
-        }
+
 
         String message = calculateScore(score, userName);
 
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
-        clearChecked(view, edelmanChecked, whiteChecked, submitName);
+        clearChecked(view, edelmanChecked, whiteChecked, submitName, patriotsScore, falconsScore);
 
     }
 
-    private String calculateScore(int score, Editable userName){
-        String message = "Hello " + userName + " - Your score is " + score + " out of 6";
-        return message;
-    }
-
-    public void clearChecked(View view, CheckBox edelman, CheckBox white, EditText name){
+    public void clearChecked(View view, CheckBox edelman,
+                             CheckBox white, EditText name,
+                             EditText patsScore, EditText falcScore){
         RadioGroup winningTeam = (RadioGroup) findViewById(R.id.winning_team_answers);
         RadioGroup patriotsQuarterback = (RadioGroup) findViewById(R.id.patriots_quarterback_answer);
         RadioGroup falconsQuarterback = (RadioGroup) findViewById(R.id.falcons_quarterback_answer);
@@ -87,8 +97,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         name.setText("", TextView.BufferType.EDITABLE);
-
-        score = 0;
+        patsScore.setText("", TextView.BufferType.EDITABLE);
+        falcScore.setText("", TextView.BufferType.EDITABLE);
     }
 
+    private String calculateScore(int score, Editable userName){
+        if (score < 3){
+            String message = "Sorry" + userName + " you only got " + score + " out of 6";
+            return message;
+        } else {
+            String message = "Congrats! " + userName + " you got " + score + " out of 6";
+            return message;
+        }
+    }
 }

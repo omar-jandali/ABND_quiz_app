@@ -55,9 +55,52 @@
         </RadioGroup>
 
         <TextView
+            style="@style/question_style"
+            android:text="2)What was the final score of the Superbowl"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="8sp"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:text="Patriots:"/>
+
+            <EditText
+                android:id="@+id/patriots_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Score"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingRight="8sp"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:text="Falcons:"/>
+
+            <EditText
+                android:id="@+id/falcons_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Score"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        
+        <TextView
             android:id="@+id/question_2_view"
             style="@style/question_style"
-            android:text="2) Who was the Patriots starting quarterback" />
+            android:text="3) Who was the Patriots starting quarterback" />
 
         <RadioGroup
             android:id="@+id/patriots_quarterback_answer"
@@ -84,7 +127,7 @@
         <TextView
             android:id="@+id/question_3_view"
             style="@style/question_style"
-            android:text="3) Who was the Falcons starting quarterback" />
+            android:text="4) Who was the Falcons starting quarterback" />
 
         <RadioGroup
             android:id="@+id/falcons_quarterback_answer"
@@ -111,7 +154,7 @@
         <TextView
             android:id="@+id/question_4_view"
             style="@style/question_style"
-            android:text="4) What city hosted the Superbowl" />
+            android:text="5) What city hosted the Superbowl" />
 
         <RadioGroup
             android:id="@+id/superbowl_host_answer"
@@ -138,7 +181,7 @@
         <TextView
             android:id="@+id/question_5_id"
             style="@style/question_style"
-            android:text="5) Which players had over 75 yards receiving?" />
+            android:text="6) Which players had over 75 yards receiving?" />
 
         <CheckBox
             android:id="@+id/julian_edelman"
