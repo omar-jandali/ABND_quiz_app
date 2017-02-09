@@ -46,24 +46,33 @@ public class MainActivity extends AppCompatActivity {
         EditText patriotsScore = (EditText) findViewById(R.id.patriots_score);
         EditText falconsScore = (EditText) findViewById(R.id.falcons_score);
         String patriotsFinal = patriotsScore.getText().toString();
-        int patsFinalScore = Integer.parseInt(patriotsFinal);
         String falconsFinal = falconsScore.getText().toString();
-        int falcFinalScore = Integer.parseInt(falconsFinal);
 
-        if (patsFinalScore == 31){
-            if (falcFinalScore == 28){
-                score ++;
+        try{
+            int patsFinalScore = Integer.parseInt(patriotsFinal);
+            int falcFinalScore = Integer.parseInt(falconsFinal);
+
+            if (patsFinalScore == 31){
+                if (falcFinalScore == 28){
+                    score ++;
+                }
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
         CheckBox edelmanChecked = (CheckBox) findViewById(R.id.julian_edelman);
         CheckBox whiteChecked = (CheckBox) findViewById(R.id.james_white);
+        CheckBox chrisHogan = (CheckBox) findViewById(R.id.chris_hogan);
         boolean edelman = edelmanChecked.isChecked();
         boolean white = whiteChecked.isChecked();
+        boolean hogan = chrisHogan.isChecked();
 
         if (edelman){
             if (white){
-                score ++;
+                if (!hogan){
+                    score ++;
+                }
             }
         }
 
