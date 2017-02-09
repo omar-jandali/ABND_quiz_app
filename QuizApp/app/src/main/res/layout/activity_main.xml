@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.janda_000.quizapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Superbowl 51 Quiz"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/user_name_view"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:hint="Name"
+            android:inputType="textMultiLine"/>
+
+        <TextView
+            android:id="@+id/question_1_view"
+            style="@style/question_style"
+            android:text="1) Which team won Suberbowl 51" />
+
+        <RadioGroup
+            android:id="@+id/winning_team_answers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/patriots"
+                style="@style/answers"
+                android:text="New England Patriots" />
+
+            <RadioButton
+                android:id="@+id/falcons"
+                style="@style/answers"
+                android:text="Atlanta Falcons" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/question_2_view"
+            style="@style/question_style"
+            android:text="2) Who was the Patriots starting quarterback" />
+
+        <RadioGroup
+            android:id="@+id/patriots_quarterback_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/andrew_luck"
+                style="@style/answers"
+                android:text="Andrew Luck" />
+
+            <RadioButton
+                android:id="@+id/aaron_rodgers"
+                style="@style/answers"
+                android:text="Aaron Rodgers" />
+
+            <RadioButton
+                android:id="@+id/tom_brady"
+                style="@style/answers"
+                android:text="Tom Brady" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/question_3_view"
+            style="@style/question_style"
+            android:text="3) Who was the Falcons starting quarterback" />
+
+        <RadioGroup
+            android:id="@+id/falcons_quarterback_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/russel_wilson"
+                style="@style/answers"
+                android:text="Russel Wilson" />
+
+            <RadioButton
+                android:id="@+id/matt_ryan"
+                style="@style/answers"
+                android:text="Matt Ryan" />
+
+            <RadioButton
+                android:id="@+id/andy_dalton"
+                style="@style/answers"
+                android:text="Andy Dalton" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/question_4_view"
+            style="@style/question_style"
+            android:text="4) What city hosted the Superbowl" />
+
+        <RadioGroup
+            android:id="@+id/superbowl_host_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/houston"
+                style="@style/answers"
+                android:text="Houston" />
+
+            <RadioButton
+                android:id="@+id/dallas"
+                style="@style/answers"
+                android:text="Dallas" />
+
+            <RadioButton
+                android:id="@+id/el_paso"
+                style="@style/answers"
+                android:text="El Paso" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/question_5_id"
+            style="@style/question_style"
+            android:text="5) Which players had over 75 yards receiving?" />
+
+        <CheckBox
+            android:id="@+id/julian_edelman"
+            style="@style/answers"
+            android:text="Julian Edelman" />
+
+        <CheckBox
+            android:id="@+id/chris_hogan"
+            style="@style/answers"
+            android:text="Chris Hogan" />
+
+        <CheckBox
+            android:id="@+id/james_white"
+            style="@style/answers"
+            android:text="James White" />
+
+        <Button
+            android:id="@+id/submit_quiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="checkResults"
+            android:text="Submit" />
+    </LinearLayout>
+</ScrollView>
